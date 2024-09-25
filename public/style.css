@@ -87,7 +87,9 @@ button {
         margin-bottom: 1rem;
         border-radius: .5rem;
         background-color: white;
-
+        & p {
+            margin: 0;
+        }
         & span {
             display: block;
             margin-bottom: .5rem;

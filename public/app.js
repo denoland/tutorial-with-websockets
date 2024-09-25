@@ -22,7 +22,7 @@ socket.onmessage = (event) => {
 // Update user list in the DOM
 function updateUserList(usernames) {
   const userList = document.getElementById("users");
-  userList.innerHTML = ""; // Clear existing list
+  userList.replaceChildren();
 
   for (const username of usernames) {
     const listItem = document.createElement("li");
@@ -33,10 +33,12 @@ function updateUserList(usernames) {
 
 // Add a new message to the conversation
 function addMessage(username, message) {
-  const conversation = document.getElementById("conversation");
-  const messageDiv = document.createElement("div");
-  messageDiv.innerHTML = `<span>${username}</span> ${message}`;
-  conversation.prepend(messageDiv);
+  const template = document.getElementById("message");
+  const clone = template.content.cloneNode(true);
+
+  clone.querySelector("span").textContent = username;
+  clone.querySelector("p").textContent = message;
+  document.getElementById("conversation").prepend(clone);
 }
 
 // Focus input field on page load to make typing instant
