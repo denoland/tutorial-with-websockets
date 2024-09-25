@@ -1,0 +1,96 @@
+body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    grid-column: 1 / -1;
+    height: 3rem;
+    padding: 1rem;
+    background-color: #0b0d11;
+    text-align: center;
+    color: white;
+
+    & h1 {
+        margin: 0;
+    }
+}
+
+aside {
+    padding: 1rem;
+
+    & h2 {
+        margin-top: 0;
+    }
+
+    & ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    & li {
+        display: block;
+        margin-top: 1rem;
+        padding: .5rem 1rem;
+        background-color: #aff5b4;
+        border-radius: .5rem;
+    }
+}
+
+main {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: calc(100vh - 7rem);
+    padding: 1rem;
+    background-color: #f0f0f0;
+}
+
+form {
+    align-self: flex-end;
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+}
+
+input {
+    width: 100%;
+    padding: .5rem 1rem;
+    border: 1px solid #0b0d11;
+    border-radius: .5rem;
+    resize: none;
+}
+
+button {
+    margin-left: 1rem;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    border: none;
+    white-space: nowrap;
+    background-color: #75fead;
+    color: #0b0d11;
+    cursor: pointer;
+}
+
+#conversation {
+    display: flex; 
+    flex-direction: column-reverse; 
+    overflow-y: scroll;
+
+    & div {
+        padding: .5rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: .5rem;
+        background-color: white;
+
+        & span {
+            display: block;
+            margin-bottom: .5rem;
+            font-weight: bold;
+        }
+    }
