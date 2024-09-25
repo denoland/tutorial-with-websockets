@@ -1,8 +1,8 @@
 // Initialize WebSocket connection
 const myUsername = prompt("Please enter your name") || "Anonymous";
-const socket = new WebSocket(
-  `ws://localhost:8080/start_web_socket?username=${myUsername}`,
-);
+const url = new URL(`./start_web_socket?username=${myUsername}`, location.href);
+url.protocol = url.protocol.replace('http', 'ws');
+const socket = new WebSocket(url);
 
 // Handle WebSocket messages
 socket.onmessage = (event) => {
